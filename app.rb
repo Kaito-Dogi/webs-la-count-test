@@ -11,6 +11,9 @@ end
 
 get '/' do
   @number = Count.find(1).number
+  if Count.count > 1
+    @number2 = Count.find(2).number
+  end
   erb :index
 end
 
@@ -48,4 +51,14 @@ post '/divide' do
   count.save
   redirect '/'
 end
-  
+
+# 後で:idを用いて実装する．
+post '/add2' do
+  if Count.count < 2
+    Count.create(number: 0)
+  end
+  count = Count.find(2)
+  count.number = count.number + 1
+  count.save
+  redirect '/'
+end
