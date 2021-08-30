@@ -14,9 +14,37 @@ get '/' do
   erb :index
 end
 
-post '/count' do
+post '/add' do
   count = Count.find(1)
   count.number = count.number + 1
+  count.save
+  redirect '/'
+end
+
+post '/minus' do
+  count = Count.find(1)
+  count.number = count.number - 1
+  count.save
+  redirect '/'
+end
+
+post '/clear' do
+  count = Count.find(1)
+  count.number = 0
+  count.save
+  redirect '/'
+end
+
+post '/multiple' do
+  count = Count.find(1)
+  count.number = count.number * 2
+  count.save
+  redirect '/'
+end
+
+post '/divide' do
+  count = Count.find(1)
+  count.number = count.number / 2
   count.save
   redirect '/'
 end

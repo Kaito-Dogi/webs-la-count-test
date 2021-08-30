@@ -10,8 +10,20 @@
 	
 	<div>
 		<h2><%= @number %></h2>
-		<form action="/count" method="post">
+		<form action="/add" method="post">
 			<input type="submit" value="+">
+		</form>
+		<form action="/minus" method="post">
+			<input type="submit" value="-">
+		</form>
+		<form action="/clear" method="post">
+			<input type="submit" value="CLEAR">
+		</form>
+		<form action="/multiple" method="post">
+			<input type="submit" value="*2">
+		</form>
+		<form action="/divide" method="post">
+			<input type="submit" value="/2">
 		</form>
 	</div>
 </html>
