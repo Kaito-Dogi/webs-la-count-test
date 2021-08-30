@@ -11,6 +11,8 @@ end
 
 get '/' do
   @number = Count.find(1).number
+  @title = Count.find(1).title
+  puts "----------- #{@title} -----------"
   if Count.count > 1
     @number2 = Count.find(2).number
   end
@@ -59,6 +61,14 @@ post '/add2' do
   end
   count = Count.find(2)
   count.number = count.number + 1
+  count.save
+  redirect '/'
+end
+
+post '/add_title' do
+  count = Count.find(1)
+  count.title = params[:title]
+  puts "----------- #{count.title} -----------" #params[:title]は取得できている．
   count.save
   redirect '/'
 end

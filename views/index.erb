@@ -9,6 +9,10 @@
 	<h1>LA確認テスト</h1>
 	
 	<div>
+		<form action="/add_title" method="post">
+			<input type="text" name="title" placeholder="見出しを入力してね！" value="<%= @title %>">
+			<button type="submit">更新</button>
+		</form>
 		<h2><%= @number %></h2>
 		<form action="/add" method="post">
 			<input type="submit" value="+">
